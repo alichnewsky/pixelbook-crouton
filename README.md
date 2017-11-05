@@ -1,5 +1,5 @@
 # pixelbook-crouton
-Configuring [https://github.com/dnschneid/crouton](crouton) inside my pixelbook
+Configuring [crouton](https://github.com/dnschneid/crouton) inside my pixelbook
 
 
 ## How
@@ -24,7 +24,7 @@ I quickly discovered:
 So, I could have gone with a lighter coreutils only version of stretch.
 
 ### issue #1 : XFCE won't start
-* exactly described with crouton issue [https://github.com/dnschneid/crouton/issues/2676](#2676)
+* exactly described with crouton issue [#2676](https://github.com/dnschneid/crouton/issues/2676)
 * workaround is to replace `console` with `anybody` in `/etc/X11/Xwrapper.config`
 ```
 allowed_users=anybody
@@ -47,13 +47,13 @@ apt-get install locales
 I may consider working inside XFCE just because of that
 
 # Docker won't run inside a chroot on ChromeOS
-This one is particularly annoying and nasty, as I know for a fact that [https://cloud.google.com/container-optimized-os/](GCP's container optimized os) is actually based on Chromium OS.
+This one is particularly annoying and nasty, as I know for a fact that [GCP's container optimized OS](https://cloud.google.com/container-optimized-os/) is actually based on Chromium OS.
 `cgroups` seem to be missing.
 
 That said, for container afficionados, it turns out that _when run as root_, CoreOS `rkt` can run containers inside a crouton `chroot` jail in ChromeOS...
 
-First you need to [https://coreos.com/rkt/docs/latest/distributions.html](install `rkt` as per CoreOS instructions)
-Since I do not use `sid` but `stretch` I used [https://coreos.com/rkt/docs/latest/distributions.html#deb-based](these specific instructions):
+First you need to [install `rkt` as per CoreOS instructions](https://coreos.com/rkt/docs/latest/distributions.html)
+Since I do not use `sid` but `stretch` I used [these specific instructions](https://coreos.com/rkt/docs/latest/distributions.html#deb-based]):
 ```
 gpg --recv-key 18AD5014C99EF7E3BA5F6CE950BDD3E0FC8A365E
 wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb
